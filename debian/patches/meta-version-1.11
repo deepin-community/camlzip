@@ -1,0 +1,13 @@
+Author: Ralf Treinen <treinen#debian.org>
+Description: Fix version in META file
+
+Index: camlzip/META-zip
+===================================================================
+--- camlzip.orig/META-zip	2021-10-20 02:26:12.322886434 +0200
++++ camlzip/META-zip	2021-10-20 02:51:55.815156078 +0200
+@@ -1,4 +1,4 @@
+-version="1.09"
++version="1.11"
+ requires="unix"
+ archive(byte)="zip.cma"
+ archive(native)="zip.cmxa"

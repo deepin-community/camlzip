@@ -1,0 +1,8 @@
+@OCamlStdlibDir@/zip/lib*.a
+@OCamlStdlibDir@/zip/*.cmi
+@OCamlStdlibDir@/zip/*.ml*
+@OCamlStdlibDir@/zip/*.cmt
+@OCamlStdlibDir@/zip/*.cmti
+OPT: @OCamlStdlibDir@/zip/*.cmx
+OPT: @OCamlStdlibDir@/zip/zip.cmxa
+OPT: @OCamlStdlibDir@/zip/zip.a

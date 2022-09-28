@@ -1,0 +1,406 @@
+camlzip (1.11-1) unstable; urgency=medium
+
+  * New upstream release
+  * Patch meta-version-1.11: fix version in META file
+  * Standards-Version 4.6.0 (no change)
+  * Install README.md instead of README
+  * Install *.cmt and *.cmti files
+  * Add lintian override concerning META.zip which is in fact not a
+    zip file
+  * Bump build-dependency on ocaml to 4.07, as indicated by upstream
+  * Add debian/upstream/metadata
+
+ -- Ralf Treinen <treinen@debian.org>  Mon, 25 Oct 2021 21:07:59 +0200
+
+camlzip (1.10-1) unstable; urgency=medium
+
+  * New upstream release
+  * Fix debian/watch
+  * Remove Samuel from Uploaders
+  * Bump debhelper compat level to 13
+  * Bump Standards-Version to 4.5.0
+  * Add Rules-Requires-Root: no
+
+ -- Stéphane Glondu <glondu@debian.org>  Thu, 20 Aug 2020 08:49:11 +0200
+
+camlzip (1.09-2) unstable; urgency=medium
+
+  * patch tests-ocaml4.08: migrate a test to ocaml4.08 (closes: #944280)
+  * debian/watch: use dversionmangle to cope with the strange habitude of
+    upstream to not separate the parts of a version by a dot.
+
+ -- Ralf Treinen <treinen@debian.org>  Thu, 07 Nov 2019 22:27:13 +0100
+
+camlzip (1.09-1) unstable; urgency=medium
+
+  * New upstream release
+  * Standards-Version 4.4.1 (no change)
+
+ -- Ralf Treinen <treinen@debian.org>  Fri, 01 Nov 2019 21:58:13 +0100
+
+camlzip (1.08-1) unstable; urgency=medium
+
+  [ Jelmer Vernooĳ ]
+  * Use secure URI in Homepage field.
+
+  [ Ralf Treinen ]
+  * New upstream release
+  * Build-depend on debian-compat and drop debian/compat file.
+  * DH compat level 12 (no change)
+  * Standards-Version 4.4.0 (no change)
+
+ -- Ralf Treinen <treinen@debian.org>  Wed, 17 Jul 2019 21:02:48 +0200
+
+camlzip (1.07-2) unstable; urgency=medium
+
+  * fix as-installed test: put compilation commands in testscript,
+    instead of using upstreams Makefile (closes: #901169)
+
+ -- Ralf Treinen <treinen@debian.org>  Sun, 10 Jun 2018 21:52:05 +0200
+
+camlzip (1.07-1) unstable; urgency=medium
+
+  * New upstream release (closes: #900445)
+    - refreshed patch 0003-Add-plain_uncompress.patch
+  * updated debian/watch to github
+  * updated homepage to github
+  * updated Vcs-* fields to salsa
+  * Standards-Version 4.1.4:
+    - https in d/copyright format header
+  * rewrite installation:
+    - debian/rules: use install-findlib from upstream's makefile, and move
+      manually dll* into stublibs
+    - adjusted d/*.install.in accordingly
+    - d/control: add build-dependency on ocaml-findlib
+    - drop patch 0001-Build-system-for-Debian
+  * d/rules: drop explicit building of zip.{cmxa,cmxs} since it is done
+    now by the upstream Makefile
+  * debhelper compat level 11
+  * Dropped patch 0002-Use-an-installed-camlzip-for-tests as we now have
+    as-installed tests for that
+  * Bumped version of build-dependency ocaml, following upstream instructions
+  * Dropped build-dependency on dpkg-dev since it was constrained >= a version
+    from 2006
+
+ -- Ralf Treinen <treinen@debian.org>  Fri, 08 Jun 2018 21:23:26 +0200
+
+camlzip (1.06-2) unstable; urgency=medium
+
+  * debhelper compatibility level 10
+  * dh invocation: options after sequence
+
+ -- Ralf Treinen <treinen@debian.org>  Tue, 25 Oct 2016 20:51:31 +0200
+
+camlzip (1.06-1) unstable; urgency=medium
+
+  * New upstream version.
+  * Refreshed patches:
+    - 0001-Build-system-for-Debian.patch
+    - 0002-Use-an-installed-camlzip-for-tests.patch
+    - 0003-Add-plain_uncompress.patch
+  * Standards-Version 3.9.8 (no change)
+  * Updated upstream homepage
+  * Updated Vcs-* fields
+  * libzip-ocaml: replaced Conflicts with libzip-ocaml-dev (<< 1.04-4)
+    by Breaks
+  * libzip-ocaml-dev: dropped Conflicts/Replaces/Provides camlzip since
+    that binary package disappeared in 2002.
+  * Added autopkgtest-style test, using the test provided by upstream
+
+ -- Ralf Treinen <treinen@debian.org>  Sat, 10 Sep 2016 11:43:43 +0200
+
+camlzip (1.05-3) unstable; urgency=low
+
+  * Upload to unstable
+
+ -- Stéphane Glondu <glondu@debian.org>  Mon, 02 Dec 2013 22:43:58 +0100
+
+camlzip (1.05-2) experimental; urgency=low
+
+  * Compile with OCaml >= 4
+
+ -- Stéphane Glondu <glondu@debian.org>  Thu, 25 Jul 2013 21:36:25 +0200
+
+camlzip (1.05-1) unstable; urgency=low
+
+  [ Ralf Treinen ]
+  * New upstream version
+  * use upstream's META file instead our own
+  * debian/copyright: machine-readable format 1.0. Fix year, and
+    copyright holder.
+  * source format 3.0 (quilt):
+    - add debian/source/format
+    - drop build-dependency on quilt
+    - drop quilt addon from dh invocation
+  * Standards-Version 3.9.4 (no change)
+  * Update debian/watch (ocamlforge)
+  * Fix typo in long description of libzip-ocaml-dev.
+  * Remove Sven Luther from Uploaders (closes:#677754)
+
+  [ Stéphane Glondu ]
+  * Fix generation of documentation by dh_ocamldoc
+
+  [ Stefano Zacchiroli ]
+  * remove myself from Uploaders
+
+  [ Sylvain Le Gall ]
+  * Remove Sylvain Le Gall from uploaders
+
+ -- Ralf Treinen <treinen@debian.org>  Tue, 14 May 2013 16:05:24 +0200
+
+camlzip (1.04-6) unstable; urgency=low
+
+  * Switch patches to quilt
+  * debian/rules, debian/control:
+    - switch to dh+overrides and dh-ocaml 0.9
+    - update versioned dependencies to debhelper, quilt, dh-ocaml and
+      ocaml
+
+ -- Stéphane Glondu <glondu@debian.org>  Tue, 29 Sep 2009 10:45:25 +0200
+
+camlzip (1.04-5) unstable; urgency=low
+
+  * Fix version field in META file
+  * Add README.source
+  * debian/control:
+    - update Standards-Version to 3.8.3
+    - update Conflicts/Replaces for libzip-ocaml
+    - update my e-mail address and remove DMUA
+
+ -- Stéphane Glondu <glondu@debian.org>  Tue, 08 Sep 2009 23:01:37 +0200
+
+camlzip (1.04-4) unstable; urgency=low
+
+  * Install zip.a along with zip.cmxa (Closes: #524017)
+
+ -- Stephane Glondu <steph@glondu.net>  Tue, 14 Apr 2009 10:59:42 +0200
+
+camlzip (1.04-3) unstable; urgency=low
+
+  * Add myself to Uploaders and DMUA
+  * Move to new archive section ocaml
+  * Discriminate binary packages in short descriptions
+  * Move .cma and META to libzip-ocaml, build .cmxs
+  * Add Homepage field to debian/control
+  * Bump Standards-Version to 3.8.1
+
+ -- Stephane Glondu <steph@glondu.net>  Sun, 12 Apr 2009 00:09:00 +0200
+
+camlzip (1.04-2) unstable; urgency=low
+
+  [ Stephane Glondu ]
+  * Switch packaging to git
+
+  [ Samuel Mimram ]
+  * Use dh-ocaml's predefined variables.
+
+ -- Samuel Mimram <smimram@debian.org>  Tue, 24 Feb 2009 17:48:49 +0100
+
+camlzip (1.04-1) experimental; urgency=low
+
+  [ Stefano Zacchiroli ]
+  * debian/copyright: mention the usual OCaml linking exception to LGPL
+
+  [ Samuel Mimram ]
+  * New upstream release.
+  * Build-depend on dh-ocaml.
+  * Updated compat to 7.
+  * Refreshed uncompress.dpatch.
+  * Updated standards version to 3.8.0.
+  * Version LGPL reference.
+
+ -- Samuel Mimram <smimram@debian.org>  Tue, 10 Feb 2009 12:35:24 +0100
+
+camlzip (1.03-7) experimental; urgency=low
+
+  [ Stefano Zacchiroli ]
+  * fix vcs-svn field to point just above the debian/ dir
+
+  [ Ralf Treinen ]
+  * Recompile with ocaml 3.10.2
+  * Capitalization error in short package description
+  * Standards-Version 3.7.3 (no change)
+  * Added myself to Uploaders.
+
+ -- Ralf Treinen <treinen@debian.org>  Mon, 07 Apr 2008 20:31:08 +0200
+
+camlzip (1.03-6) unstable; urgency=low
+
+  * Change distribution to unstable
+  * Use ocaml >= 3.10.8 to have the .doc-base.ocamldoc-apiref template
+
+ -- Sylvain Le Gall <gildor@debian.org>  Wed, 05 Sep 2007 13:40:47 +0200
+
+camlzip (1.03-5) experimental; urgency=low
+
+  * Ocamldoc documentation generation (Closes: #334284)
+  * Upgrade build-dependency to ocaml 3.10.0
+
+ -- Sylvain Le Gall <gildor@debian.org>  Tue, 04 Sep 2007 00:34:16 +0200
+
+camlzip (1.03-4) experimental; urgency=low
+
+  * Rebuild for ocaml 3.10.0
+  * Ignore error in clean target
+  * Use binary:Version for versioned dependency
+  * Upgrade to debhelper 5
+
+ -- Sylvain Le Gall <gildor@debian.org>  Sat, 14 Jul 2007 02:15:06 +0200
+
+camlzip (1.03-3) unstable; urgency=low
+
+  * Remove produced .so files at clean time, closes: #424150.
+
+ -- Samuel Mimram <smimram@debian.org>  Tue, 15 May 2007 21:58:20 +0200
+
+camlzip (1.03-2) unstable; urgency=low
+
+  * Upload to unstable.
+
+ -- Samuel Mimram <smimram@debian.org>  Wed, 11 Apr 2007 16:52:20 +0200
+
+camlzip (1.03-1) experimental; urgency=low
+
+  * New upstream release.
+  * Improved packaging.
+  * Updated uncompress.dpatch.
+  * We don't need to remove rpaths anymore.
+  * Added myself to uploaders.
+
+ -- Samuel Mimram <smimram@debian.org>  Tue,  6 Mar 2007 23:40:20 +0100
+
+camlzip (1.01-17) unstable; urgency=low
+
+  [ Julien Cristau ]
+  * Add build-dep on chrpath and delete rpath from the stublib (fixes lintian
+    warning).
+
+  [ Stefano Zacchiroli ]
+  * Rebuilt against ocaml 3.09.2, bumped deps accordingly.
+  * debian/control
+    - bumped Standards-Version (no changes needed)
+  * debian/*
+    - use the more common 'ocamlinit' target in debian/rules to update the
+      hard-coded version of the ocaml ABI. Avoids unintented re-generation of
+      debian/control during the build
+
+ -- Stefano Zacchiroli <zack@debian.org>  Fri, 19 May 2006 21:06:10 -0500
+
+camlzip (1.01-16) unstable; urgency=low
+
+  [ Sven Luther ]
+
+  * Rebuilt against ocaml 3.09.0.
+
+  [ Stefano Zacchiroli ]
+
+  * Made svn structure svn-buildpackage friendly
+  * debian/control
+    - bumped standards version
+  * debian/changelog
+    - removed dh_make boilerplate
+  * Added myself as an Uploader
+
+ -- Debian OCaml Maintainers <debian-ocaml-maint@lists.debian.org>  Sat, 26 Nov 2005 22:25:12 +0100
+
+camlzip (1.01-15) unstable; urgency=medium
+
+  * Rebuild against ocaml 3.08.3.
+
+ -- Sven Luther <luther@debian.org>  Tue, 22 Mar 2005 08:40:56 +0100
+
+camlzip (1.01-14) unstable; urgency=high
+
+  * Rebuilt for ocaml 3.08.2 unix breakage :/ (Closes: #293904)
+
+ -- Sven Luther <luther@debian.org>  Mon, 14 Feb 2005 09:00:40 +0100
+
+camlzip (1.01-13) unstable; urgency=low
+
+  * Rebuilt for ocaml 3.08.
+
+ -- Sven Luther <luther@debian.org>  Thu, 15 Jul 2004 14:01:27 +0200
+
+camlzip (1.01-12) unstable; urgency=low
+
+  * Forgot dpathc build-dependency. (Closes: #229385)
+
+ -- Sven Luther <luther@debian.org>  Fri, 30 Jan 2004 13:47:33 +0100
+
+camlzip (1.01-11) unstable; urgency=low
+
+  * Fixed META installation using ocamlc -where instead of ocamlc -version.
+    (Closes: #229307)
+  * Dpatchification.
+
+ -- Sven Luther <luther@debian.org>  Sat, 24 Jan 2004 10:32:32 +0100
+
+camlzip (1.01-10) unstable; urgency=low
+
+  * Rebuilt for ocaml 3.07.
+
+ -- Sven Luther <luther@debian.org>  Wed,  1 Oct 2003 17:31:51 +0200
+
+camlzip (1.01-9) unstable; urgency=low
+
+  * Changed control file, since the buildd don't seem to like virtual packages
+    in build dependencies. Thanks to James for noticing this.
+
+ -- Sven Luther <luther@debian.org>  Mon, 06 Jan 2003 11:49:22 +0100
+
+camlzip (1.01-8) unstable; urgency=low
+
+  * Added META file for findlib, thanks to Stefano Zacchiroli for providing
+    it. (Closes: #173568)
+
+ -- Sven Luther <luther@debian.org>  Wed, 18 Dec 2002 17:09:55 +0100
+
+camlzip (1.01-7) unstable; urgency=low
+
+  * Rebuilt for ocaml 3.06-13 and the libdir migration.
+  * Added a plain_uncompress binding.
+
+ -- Sven Luther <luther@debian.org>  Sat, 14 Dec 2002 22:48:42 +0100
+
+camlzip (1.01-6) unstable; urgency=low
+
+  * Rebuilt for ocaml 3.06.
+
+ -- Sven Luther <luther@debian.org>  Thu, 22 Aug 2002 11:10:42 +0200
+
+camlzip (1.01-5) unstable; urgency=low
+
+  * Rebuilt with zlib1g-dev 1.1.4-1, to fix the double-free security bug.
+
+ -- Sven Luther <luther@debian.org>  Mon, 18 Mar 2002 16:42:51 +0100
+
+camlzip (1.01-4) unstable; urgency=low
+
+  * Added a provide camlzip to libzip-ocaml-dev.
+
+ -- Sven Luther <luther@debian.org>  Sat, 23 Feb 2002 08:49:49 +0100
+
+camlzip (1.01-3) unstable; urgency=low
+
+  * Added a versioned conflict to libzip-ocaml.
+
+ -- Sven Luther <luther@debian.org>  Sat, 23 Feb 2002 08:49:49 +0100
+
+camlzip (1.01-2) unstable; urgency=low
+
+  * Added dh_shlibdep library dependencies.
+
+ -- Sven Luther <luther@debian.org>  Fri, 22 Feb 2002 18:13:57 +0100
+
+camlzip (1.01-1) unstable; urgency=low
+
+  * New upstream release, adapted to ocaml 3.04.
+  * Package was split in libzip-ocaml and libzip-ocaml-dev.
+
+ -- Sven Luther <luther@debian.org>  Thu, 21 Feb 2002 11:34:56 +0100
+
+camlzip (1.00-1) unstable; urgency=low
+
+  * Initial Release.
+
+ -- Sven Luther <luther@debian.org>  Thu, 30 Aug 2001 10:45:01 +0200

@@ -1,0 +1,15 @@
+#!/bin/sh
+
+set -e
+
+testdir=${AUTOPKGTEST_TMP:-/tmp}
+cp test/*.ml ${testdir}
+cd ${testdir}
+ocamlc -ccopt -g -g -I +zip -o minigzip zip.cma minigzip.ml
+ocamlc -ccopt -g -g -I +zip -o minizip unix.cma zip.cma minizip.ml
+ocamlc -g -I +zip -o testzlib zip.cma testzlib.ml
+if [ -x /usr/bin/ocamlopt ]; then
+    ocamlopt -ccopt -g -g -I +zip -o minigzip zip.cmxa minigzip.ml 
+    ocamlopt -ccopt -g -g -I +zip -o minizip unix.cmxa zip.cmxa minizip.ml
+    ocamlopt -g -I +zip -o testzlib zip.cmxa testzlib.ml
+fi

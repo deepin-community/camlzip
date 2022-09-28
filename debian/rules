@@ -1,0 +1,26 @@
+#!/usr/bin/make -f
+
+include /usr/share/ocaml/ocamlvars.mk
+
+# Uncomment this to turn on verbose mode.
+#export DH_VERBOSE=1
+
+LIBINSTALL = $(CURDIR)/debian/tmp$(OCAML_STDLIB_DIR)
+
+%:
+	dh  $@ --with ocaml
+
+.PHONY: override_dh_auto_build
+override_dh_auto_build:
+	$(MAKE)
+ifneq ($(OCAML_OPT_ARCH),)
+	$(MAKE) allopt
+endif
+
+.PHONY: override_dh_auto_install
+override_dh_auto_install:
+	mkdir -p $(LIBINSTALL)
+	OCAMLFIND_DESTDIR=$(LIBINSTALL) OCAMLFIND_LDCONF=ignore \
+		$(MAKE) install-findlib
+	mkdir -p $(LIBINSTALL)/stublibs
+	mv $(LIBINSTALL)/zip/dll*.so $(LIBINSTALL)/stublibs

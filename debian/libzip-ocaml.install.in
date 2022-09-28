@@ -1,0 +1,5 @@
+@OCamlStdlibDir@/zip/zip.cma
+@OCamlStdlibDir@/zip/META
+@OCamlStdlibDir@/camlzip/META
+@OCamlDllDir@/dllcamlzip.so
+DYN: @OCamlStdlibDir@/zip/zip.cmxs

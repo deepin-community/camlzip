@@ -1,0 +1,14 @@
+all: minizip minigzip
+
+minigzip: minigzip.ml
+	ocamlc -ccopt -g -g -I +zip  -o minigzip zip.cma minigzip.ml
+
+minizip: minizip.ml
+	ocamlc -ccopt -g -g -I +zip -o minizip unix.cma zip.cma minizip.ml
+
+testzlib: ../zip.cma testzlib.ml
+	ocamlc -g -I +zip -o testzlib zip.cma testzlib.ml
+
+clean:
+	rm -f *.cm*
+	rm -f minigzip minizip testzlib
